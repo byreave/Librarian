@@ -17,6 +17,7 @@ namespace LibraryManagementSystem
         public Login()
         {
             InitializeComponent();
+           
         }
         private void Login_Load(object sender, EventArgs e)
         {
@@ -41,6 +42,8 @@ namespace LibraryManagementSystem
 
                 else
                 {
+                    //MessageBox.Show("1234");
+
                     MessageBox.Show("登录失败！");
                 }
             }

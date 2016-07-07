@@ -5,18 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
+using System.Windows.Forms;
 
 namespace LibraryManagementSystem
 {
     public class dbHelper
     {
-        public static SqlConnection conn;
-        public static SqlConnection Conn()
+        public static MySqlConnection conn;
+        public static MySqlConnection Conn()
         {
-                string strConn = "Data Source=.;Initial Catalog=MyLibraryDB;Integrated Security=True";//ConfigurationManager.AppSettings["conn"];
+            string strConn = "server=localhost;user id=root;password=;database=Library;Convert Zero Datetime=True;";
+                //string strConn = "Data Source=.;Initial Catalog=MyLibraryDB;Integrated Security=True";//ConfigurationManager.AppSettings["conn"];
                 if (conn == null)
                 {
-                    conn = new SqlConnection(strConn);
+                    conn = new MySqlConnection(strConn);
                     conn.Open();
                 }
                 else if (conn.State == ConnectionState.Broken)
@@ -32,12 +35,12 @@ namespace LibraryManagementSystem
         }
         public static int ExecuteCommand(string sql)
         {
-            SqlCommand cmd = new SqlCommand(sql, Conn());
+            MySqlCommand cmd = new MySqlCommand(sql, Conn());
             int i = cmd.ExecuteNonQuery();
             conn.Close();
             return i;
         }
-        public static int ExecuteCommand(SqlCommand cmd)
+        public static int ExecuteCommand(MySqlCommand cmd)
         {
             int i = cmd.ExecuteNonQuery();
             conn.Close();
@@ -45,14 +48,18 @@ namespace LibraryManagementSystem
         }
         public static object GetScalar(string sql)
         {
-            SqlCommand cmd = new SqlCommand(sql, Conn());
+            //MessageBox.Show("123");
+            MySqlCommand cmd = new MySqlCommand(sql, Conn());
             object o = cmd.ExecuteScalar();
+            //MessageBox.Show("12345");
             conn.Close();
+            //MessageBox.Show("123456");
+
             return o;
         }
         public static DataSet GetDataSet(string sql)
         {
-            SqlDataAdapter adp = new SqlDataAdapter(sql, Conn());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sql, Conn());
             DataSet ds = new DataSet();
             adp.Fill(ds);
             conn.Close();

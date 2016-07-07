@@ -29,3 +29,21 @@ C:\Users\tbbrave\Documents\Visual Studio 2013\Projects\LibraryManagementSystem\L
 C:\Users\tbbrave\Documents\Visual Studio 2013\Projects\LibraryManagementSystem\LibraryManagementSystem\obj\Debug\LibraryManagementSystem.SignUp.resources
 C:\Users\tbbrave\Documents\Visual Studio 2013\Projects\LibraryManagementSystem\LibraryManagementSystem\obj\Debug\LibraryManagementSystem.adminManageUserBooks.resources
 C:\Users\tbbrave\Documents\Visual Studio 2013\Projects\LibraryManagementSystem\LibraryManagementSystem\obj\Debug\LibraryManagementSystem.csprojResolveAssemblyReference.cache
+H:\Librarian-master\LibraryManagementSystem\bin\Debug\LibraryManagementSystem.exe.config
+H:\Librarian-master\LibraryManagementSystem\bin\Debug\LibraryManagementSystem.exe
+H:\Librarian-master\LibraryManagementSystem\bin\Debug\LibraryManagementSystem.pdb
+H:\Librarian-master\LibraryManagementSystem\obj\Debug\LibraryManagementSystem.csprojResolveAssemblyReference.cache
+H:\Librarian-master\LibraryManagementSystem\obj\Debug\LibraryManagementSystem.AddBook.resources
+H:\Librarian-master\LibraryManagementSystem\obj\Debug\LibraryManagementSystem.adminManageUserBooks.resources
+H:\Librarian-master\LibraryManagementSystem\obj\Debug\LibraryManagementSystem.BorrowBook.resources
+H:\Librarian-master\LibraryManagementSystem\obj\Debug\LibraryManagementSystem.Login.resources
+H:\Librarian-master\LibraryManagementSystem\obj\Debug\LibraryManagementSystem.Reader.resources
+H:\Librarian-master\LibraryManagementSystem\obj\Debug\LibraryManagementSystem.Properties.Resources.resources
+H:\Librarian-master\LibraryManagementSystem\obj\Debug\LibraryManagementSystem.Manager.resources
+H:\Librarian-master\LibraryManagementSystem\obj\Debug\LibraryManagementSystem.ReturnBook.resources
+H:\Librarian-master\LibraryManagementSystem\obj\Debug\LibraryManagementSystem.SignUp.resources
+H:\Librarian-master\LibraryManagementSystem\obj\Debug\LibraryManagementSystem.UserManagement.resources
+H:\Librarian-master\LibraryManagementSystem\obj\Debug\LibraryManagementSystem.csproj.GenerateResource.Cache
+H:\Librarian-master\LibraryManagementSystem\obj\Debug\LibraryManagementSystem.exe
+H:\Librarian-master\LibraryManagementSystem\obj\Debug\LibraryManagementSystem.pdb
+H:\Librarian-master\LibraryManagementSystem\bin\Debug\MySql.Data.dll

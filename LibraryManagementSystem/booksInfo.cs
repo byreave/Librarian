@@ -7,6 +7,9 @@ using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Drawing;
+using MySql.Data.MySqlClient;
+using System.Windows.Forms;
+
 
 namespace LibraryManagementSystem
 {
@@ -58,7 +61,7 @@ namespace LibraryManagementSystem
         /// <returns></returns>
         public static int readerBorrowBook(string id, string ISBN, string title, string author, string publisher,int stock)
         {
-            string insert = "insert into [kept] (ID,ISBN,Name,Author,Press) values ('" + id + "','" + ISBN + "','" + title + "','" + author + "','" + publisher + "')";
+            string insert = "insert into kept (ID,ISBN,Name,Author,Press) values ('" + id + "','" + ISBN + "','" + title + "','" + author + "','" + publisher + "')";
             string update_storage = "update book set stock = " + stock + "- 1 where ISBN = '" + ISBN + "'";
             string update_user = "update reader set keptbook = keptbook +1 where id = '" + id + "'";
             return (Convert.ToInt32(dbHelper.ExecuteCommand(insert)) + Convert.ToInt32(dbHelper.ExecuteCommand(update_storage))+Convert.ToInt32(dbHelper.ExecuteCommand(update_user)));
@@ -72,7 +75,7 @@ namespace LibraryManagementSystem
         /// <returns></returns>
         public static DataSet getBorrowedInfo(string id)
         {
-            string sql_kept = "select isbn from [kept] where id = '" + id + "'";
+            string sql_kept = "select isbn from kept where id = '" + id + "'";
             string sql_book = "select * from book where isbn in (" + sql_kept + ")";
             return dbHelper.GetDataSet(sql_book);
         }
@@ -84,13 +87,16 @@ namespace LibraryManagementSystem
         /// <param name="isbn"></param>
         public static int readerReturnBook(string id, string isbn)
         {
-            string sql = "delete from [kept] where isbn ='" + isbn + "' and id ='" + id + "'";
+            string sql = "delete from kept where isbn ='" + isbn + "' and id ='" + id + "'";
             int success = 0;
             success += Convert.ToInt32(dbHelper.ExecuteCommand(sql));
+            MessageBox.Show(success.ToString());
             sql = "update book set Stock = Stock + 1 where isbn = '" + isbn + "'";
             success += Convert.ToInt32(dbHelper.ExecuteCommand(sql));
+            MessageBox.Show(success.ToString());
             sql = "update reader set keptbook = keptbook - 1 where id = '"+ id +"'";
             success += Convert.ToInt32(dbHelper.ExecuteCommand(sql));
+            MessageBox.Show(success.ToString());
             return success;
         }
         /// <summary>
@@ -105,7 +111,7 @@ namespace LibraryManagementSystem
         }
         public static int findBookByIsbn(string isbn,string title)
         {
-            string sql = "select count(*) from [book] where Name = '" + title + "'or ISBN='" + isbn + "'";
+            string sql = "select count(*) from book where Name = '" + title + "'or ISBN='" + isbn + "'";
             return Convert.ToInt32(dbHelper.GetScalar(sql));
         }
         /// <summary>
@@ -127,7 +133,7 @@ namespace LibraryManagementSystem
             string Content, string Stock, byte[] Cover)
         {
             string sql = "insert into book (ISBN,Name,Author,Press,Date,Price,Content,Stock,Cover) values ('" +ISBN+"', '"+Name+"' ,'"+Author+"','"+Press + "' ,'" + Date + "' ," + Price + " ,'" +Content+"','"+Stock+"', @cover)";
-            SqlCommand comm = new SqlCommand(sql,dbHelper.Conn());
+            MySqlCommand comm = new MySqlCommand(sql,dbHelper.Conn());
             comm.Parameters.AddWithValue("@cover",Cover);
             return dbHelper.ExecuteCommand(comm);
         }
@@ -150,7 +156,7 @@ namespace LibraryManagementSystem
               string Content, string Stock, byte[] Cover)
         {
             string sql = "update book set ISBN = '" + ISBN + "',Name = '" + Name + "' ,Author = '" + Author + "',Press = '" + Press + "',Date = '" + Date + "',Price = " + Price + ",Content = '" + Content + "',Stock = '" + Stock + "',cover = @cover where ISBN = '" + ISBN + "'"; 
-            SqlCommand comm = new SqlCommand(sql, dbHelper.Conn());
+            MySqlCommand comm = new MySqlCommand(sql, dbHelper.Conn());
             comm.Parameters.AddWithValue("@cover", Cover);
             return dbHelper.ExecuteCommand(comm);
         }

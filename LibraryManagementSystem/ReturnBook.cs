@@ -27,7 +27,7 @@ namespace LibraryManagementSystem
             this.stock = stock;
             this.reader = reader;
         }
- 
+        
         private void btnQuit_Click(object sender, EventArgs e)
         {
             quit();
@@ -61,8 +61,8 @@ namespace LibraryManagementSystem
         /// <param name="e"></param>
         private void dgvKeptBooks_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtISBN.Text = dgvKeptBooks.SelectedCells[7].Value.ToString();
-            txtName.Text = dgvKeptBooks.SelectedCells[0].Value.ToString();          
+            txtISBN.Text = dgvKeptBooks.SelectedCells[0].Value.ToString();
+            txtName.Text = dgvKeptBooks.SelectedCells[1].Value.ToString();          
         }
         /// <summary>
         /// 还书
@@ -88,6 +88,12 @@ namespace LibraryManagementSystem
 
                             MessageBox.Show("还书成功！");
                         }
+                }
+                else
+                {
+                    MessageBox.Show(correctID);
+                    MessageBox.Show(txtISBN.Text);
+
                 }
             }
         }

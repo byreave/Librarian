@@ -69,13 +69,13 @@ namespace LibraryManagementSystem
         {
             if(this.tabControl1.SelectedTab == this.tabPage1)
             {
-                SignUp su = new SignUp(this,dgvAdmin.CurrentRow);
+                SignUp su = new SignUp(this,dgvAdmin.CurrentRow, true);
                 su.Show();
                 this.Hide();
             }
             else
             {
-                SignUp su = new SignUp(this, dgvReader.CurrentRow);
+                SignUp su = new SignUp(this, dgvReader.CurrentRow, false);
                 su.Show();
                 this.Hide();
             }

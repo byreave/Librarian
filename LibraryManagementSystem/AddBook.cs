@@ -84,12 +84,12 @@ namespace LibraryManagementSystem
             string pat2 = @"\d{4}-\d{2}-\d{2}";
             bool m2 = Regex.IsMatch(txtPressDate.Text.Trim(), pat2);
 
-            if (txtISBN.Text == "") MessageBox.Show("ISBN号不能为空！", "提示");
-            else if (txtName.Text == "") MessageBox.Show("书名不能为空！", "提示");
-            else if (txtAuthor.Text == "") MessageBox.Show("作者不能为空！", "提示");
-            else if (txtStock.Text == "") MessageBox.Show("库存不能为空！", "提示");
-            else if (!m3) MessageBox.Show("图书价格应为XX.XX元！", "提示！");
-            else if (!m2) MessageBox.Show("时间格式错误！", "提示！");
+            if (txtISBN.Text == "") { MessageBox.Show("ISBN号不能为空！", "提示"); return; }
+            else if (txtName.Text == "") { MessageBox.Show("书名不能为空！", "提示"); return; }
+            else if (txtAuthor.Text == "") {MessageBox.Show("作者不能为空！", "提示"); return; }
+            else if (txtStock.Text == "") {MessageBox.Show("库存不能为空！", "提示");return; }
+            else if (!m3) {MessageBox.Show("图书价格应为XX.XX元！", "提示！");return;}
+            else if (!m2) { MessageBox.Show("时间格式错误！", "提示！"); return; }
             else
             {
                 ///查询是否已经有记录存在
@@ -113,10 +113,10 @@ namespace LibraryManagementSystem
                         MessageBox.Show("未进行修改");
                     }
                 }
-                if (intcont == 0)
+                else
                 {
                     try
-                    {   
+                    {
                         System.IO.MemoryStream ms = new System.IO.MemoryStream();
                         this.pbCover.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
                         int rows = booksInfo.adminAddBook(txtISBN.Text,
@@ -125,7 +125,7 @@ namespace LibraryManagementSystem
                              txtPrice.Text, txtContent.Text,
                              txtStock.Text, ms.ToArray());
                         MessageBox.Show("添加成功!");
-                       
+
                     }
                     catch
                     {
