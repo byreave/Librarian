@@ -1,14 +1,11 @@
-#c#Ğ¡Ñ§ÆÚ´ó×÷Òµ
+#c#å°å­¦æœŸå¤§ä½œä¸š
 
-2015-7-20
+2015-7-20 created
 
-Í¼Êé¹ÜÀíÏµÍ³
+2016-7-12 modified
 
-Ê¹ÓÃ.netÍ¼ĞÎ½çÃæ£¬sql serverÊı¾İ¿â
+å›¾ä¹¦ç®¡ç†ç³»ç»Ÿ
 
-Ê¹ÓÃÇ°Çë½«dataÎÄ¼ş¼ĞÖĞµÄÊı¾İ¿âÎÄ¼ş¸½¼Óµ½SQL Server (±¾ÏµÍ³Îª2012°æÊµÏÖ)ÖĞ¡£
-È»ºóÖ±½ÓË«»÷ ÎÒµÄÍ¼Êé¹ÜÀíÏµÍ³.sln ´ò¿ª£¨ÓÉVS2013ÊµÏÖ£©¡£
-exe¿ÉÖ´ĞĞÎÄ¼şÔÚ  LibraryManagementSystem\LibraryManagementSystem\bin\Debug  
-Êı¾İ¿âÎÄ¼şÔÚ LibraryManagementSystem\LibraryManagementSystem\data 
+ä½¿ç”¨.netå›¾å½¢ç•Œé¢ï¼Œæ”¹æˆ mysqlæ•°æ®åº“å•¦~
 
-LibraryManagementSystem.rarÊÇÎªÁË·ÀÖ¹gitÆæ¹Ö¹¦ÄÜ¶ø±£´æµÄÍêÕû³ÌĞò°ü¡£
+å¯æ˜¯ä»Šå¹´è¿˜æ˜¯è¦æ±‚ç”¨SQL Server...MDZZ!
